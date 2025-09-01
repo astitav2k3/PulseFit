@@ -1,8 +1,8 @@
 import { GlobalContext } from "../App";
-import React, { useContext } from "react"; // ✅ import useContext
+import React, { useContext } from "react";
 
 export default function Contact() {
-  const { mapLink } = useContext(GlobalContext); // ✅ safe to use now
+  const { mapLink } = useContext(GlobalContext);
 
   return (
     <section className="max-w-6xl mx-auto px-4 py-16 md:py-24">
@@ -15,7 +15,7 @@ export default function Contact() {
 
       {/* Form */}
       <form
-        className="card p-6 mt-8 grid md:grid-cols-2 gap-6"
+        className="card p-6 mt-8 grid grid-cols-1 md:grid-cols-2 gap-6"
         action="https://formsubmit.co/astitavmittal@gmail.com"
         method="POST"
       >
@@ -23,7 +23,7 @@ export default function Contact() {
         <div className="grid gap-2">
           <label className="text-sm text-gray-300">Name</label>
           <input
-            className="bg-gray-900 rounded-xl p-3 border border-white/10"
+            className="bg-gray-900 rounded-xl p-3 border border-white/10 w-full"
             placeholder="Your full name"
             name="name"
             required
@@ -35,7 +35,7 @@ export default function Contact() {
           <label className="text-sm text-gray-300">Email</label>
           <input
             type="email"
-            className="bg-gray-900 rounded-xl p-3 border border-white/10"
+            className="bg-gray-900 rounded-xl p-3 border border-white/10 w-full"
             placeholder="you@example.com"
             name="email"
             required
@@ -45,17 +45,17 @@ export default function Contact() {
         {/* Phone with country code */}
         <div className="grid gap-2 md:col-span-2">
           <label className="text-sm text-gray-300">Phone</label>
-          <div className="flex gap-2">
+          <div className="flex flex-col sm:flex-row gap-2">
             <input
               type="text"
-              className="bg-gray-900 rounded-xl p-3 border border-white/10 w-24 text-center"
+              className="bg-gray-900 rounded-xl p-3 border border-white/10 w-full sm:w-24 text-center"
               placeholder="91"
               name="countryCode"
               required
             />
             <input
               type="tel"
-              className="bg-gray-900 rounded-xl p-3 border border-white/10 flex-1"
+              className="bg-gray-900 rounded-xl p-3 border border-white/10 flex-1 w-full"
               placeholder="XXXXX XXXXX"
               name="phone"
               required
@@ -70,7 +70,7 @@ export default function Contact() {
         <div className="grid gap-2">
           <label className="text-sm text-gray-300">Select Plan</label>
           <select
-            className="bg-gray-900 rounded-xl p-3 border border-white/10"
+            className="bg-gray-900 rounded-xl p-3 border border-white/10 w-full"
             name="plan"
             required
           >
@@ -85,7 +85,7 @@ export default function Contact() {
         <div className="grid gap-2">
           <label className="text-sm text-gray-300">Choose Class</label>
           <select
-            className="bg-gray-900 rounded-xl p-3 border border-white/10"
+            className="bg-gray-900 rounded-xl p-3 border border-white/10 w-full"
             name="class"
             required
           >
@@ -101,7 +101,7 @@ export default function Contact() {
         <div className="grid gap-2">
           <label className="text-sm text-gray-300">Choose Duration Plan</label>
           <select
-            className="bg-gray-900 rounded-xl p-3 border border-white/10"
+            className="bg-gray-900 rounded-xl p-3 border border-white/10 w-full"
             name="membership"
             required
           >
@@ -117,24 +117,27 @@ export default function Contact() {
         <div className="grid gap-2 md:col-span-2">
           <label className="text-sm text-gray-300">Message</label>
           <textarea
-            className="bg-gray-900 rounded-xl p-3 border border-white/10 min-h-[120px]"
+            className="bg-gray-900 rounded-xl p-3 border border-white/10 min-h-[120px] w-full"
             placeholder="Tell us your goals…"
             name="message"
           />
         </div>
 
-        <button className="btn btn-primary md:col-span-2">Send Message</button>
+        {/* Submit Button */}
+        <button className="btn btn-primary md:col-span-2 w-full md:w-auto">
+          Send Message
+        </button>
+
         <p className="text-xs text-gray-500 md:col-span-2">
           By submitting, you agree to be contacted about your inquiry.
         </p>
       </form>
 
-
       {/* Map Embed */}
       <div className="mt-10 card overflow-hidden">
-         <iframe
+        <iframe
           title="Gym Location"
-          src={mapLink.replace("&output=embed", "") + "&output=embed"} // ensures it's embeddable
+          src={mapLink.replace("&output=embed", "") + "&output=embed"}
           className="w-full h-72"
           loading="lazy"
         ></iframe>
