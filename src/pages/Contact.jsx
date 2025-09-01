@@ -43,28 +43,27 @@ export default function Contact() {
         </div>
 
         {/* Phone with country code */}
-        <div className="grid gap-2 md:col-span-2">
-          <label className="text-sm text-gray-300">Phone</label>
-          <div className="flex flex-col sm:flex-row gap-2">
-            <input
-              type="text"
-              className="bg-gray-900 rounded-xl p-3 border border-white/10 w-full sm:w-24 text-center"
-              placeholder="91"
-              name="countryCode"
-              required
-            />
-            <input
-              type="tel"
-              className="bg-gray-900 rounded-xl p-3 border border-white/10 flex-1 w-full"
-              placeholder="XXXXX XXXXX"
-              name="phone"
-              required
-            />
-          </div>
-          <p className="text-xs text-gray-500">
-            Enter your country code without the +; it will be prefixed automatically.
-          </p>
-        </div>
+<div className="grid gap-2 md:col-span-2">
+  <label className="text-sm text-gray-300">Phone</label>
+  <div className="flex flex-col sm:flex-row gap-2">
+    <input
+      type="text"
+      className="bg-gray-900 rounded-xl p-3 border border-white/10 w-full sm:w-32"
+      placeholder="Country Code (e.g. 91)"
+      name="countryCode"
+    />
+    <input
+      type="tel"
+      className="bg-gray-900 rounded-xl p-3 border border-white/10 flex-1 w-full"
+      placeholder="Phone Number"
+      name="phone"
+      required
+    />
+  </div>
+  <p className="text-xs text-gray-500">
+    Enter your country code without the + (e.g., 91 for India, 1 for USA).
+  </p>
+</div>
 
         {/* Select Plan */}
         <div className="grid gap-2">
